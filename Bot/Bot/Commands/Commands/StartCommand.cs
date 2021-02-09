@@ -5,7 +5,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Bot.Commands.Commands
 {
-	public class Start : Command
+	public class StartCommand : Command
 	{
 		private const string wannaLOL = "Хочу смеяться 5 минут";
 		private const string news = "Новости в России и Удмуртии\n(источник так себе)";

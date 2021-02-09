@@ -5,15 +5,14 @@ using Telegram.Bot.Types;
 
 namespace Bot.Commands.Commands
 {
-	class GetCats : Command
+	class CatsCommand : Command
 	{
 		public override string Name { get; set; } = "Покажи кота!";
 
 		public override async void Execute(Message message, TelegramBotClient client)
 		{
 			var source = GetAnyCats();
-			//client.SendTextMessageAsync(message.Chat.Id, source);
-			client.SendPhotoAsync(message.Chat.Id, source);
+			await client.SendPhotoAsync(message.Chat.Id, source);
 		}
 
 

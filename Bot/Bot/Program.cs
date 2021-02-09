@@ -1,13 +1,11 @@
 ﻿using Bot.Commands;
 using Bot.Commands.Commands;
-using Bot.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
-using Telegram.Bot.Types;
+
 
 namespace Bot
 {
@@ -20,12 +18,12 @@ namespace Bot
 		{
 			client = new TelegramBotClient(Config.Token) { Timeout = TimeSpan.FromSeconds(10) };
 			commands = new List<Command>();
-			commands.Add(new GetMyIdCommand());
-			commands.Add(new GetChatIdCommand());
-			commands.Add(new GetCats());
+			commands.Add(new MyIDCommand());
+			commands.Add(new ChatIDCommand());
+			commands.Add(new CatsCommand());
 			commands.Add(new GetAnecdote());
-			commands.Add(new Start());
-			commands.Add(new GetNews());
+			commands.Add(new StartCommand());
+			commands.Add(new NewsCommand());
 			commands.Add(new GetWeather());
 			client.StartReceiving();
 			client.OnCallbackQuery += Client_OnCallbackQuery;
@@ -41,7 +39,7 @@ namespace Bot
 			var messageData = e.CallbackQuery.Data;
 			if (messageData == "Смешно")
 			{
-				using (var connection = new SqlConnection(Connection.get_cs()))
+				using (var connection = new SqlConnection(Config.get_cs()))
 				{
 					connection.Open();
 					SqlCommand command = new SqlCommand($"UPDATE [Anecs].[dbo].[Anecs] SET isFunny = isFunny+1 WHERE id = {NewAnecdote.AnecdoteId}", connection);
@@ -54,7 +52,7 @@ namespace Bot
 
 			if (messageData == "Не очень)")
 			{
-				using (var connection = new SqlConnection(Connection.get_cs()))
+				using (var connection = new SqlConnection(Config.get_cs()))
 				{
 					connection.Open();
 					SqlCommand command = new SqlCommand($"UPDATE [Anecs].[dbo].[Anecs] SET isFunny = isFunny-1 WHERE id = {NewAnecdote.AnecdoteId}", connection);

@@ -3,7 +3,7 @@ using Telegram.Bot.Types;
 
 namespace Bot.Commands.Commands
 {
-	class GetChatIdCommand : Command
+	class ChatIDCommand : Command
 	{
 		public override string Name { get; set; } = "/getchatid";
 

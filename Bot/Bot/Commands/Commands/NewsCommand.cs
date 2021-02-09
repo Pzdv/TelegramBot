@@ -6,7 +6,7 @@ using Telegram.Bot.Types;
 
 namespace Bot.Commands.Commands
 {
-	class GetNews : Command
+	class NewsCommand : Command
 	{
 		public override string Name { get; set; } = "Новости в России и Удмуртии\n(источник так себе)";
 
