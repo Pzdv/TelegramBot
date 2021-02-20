@@ -15,15 +15,15 @@ namespace Bot.Commands.Commands
 			var temperature = (int)weatherResponse.Main.Temp;
 			if (temperature <= -15 && temperature > -25)
 			{
-				text = $"В ижевске сейчас относительная пизда. Температура воздуха {temperature}";
+				text = $"Температура воздуха {temperature}";
 			}
 			if(temperature <=-25 )
 			{
-				text = $"В ижевске полный пиздец. Температура воздуха {temperature}. ";
+				text = $"Температура воздуха {temperature}. ";
 			}
 			if(temperature<= 0 && temperature > -15)
 			{
-				text = $"НУ вот погода уже приближается к адекватной. Температура воздуха {temperature}";
+				text = $"Температура воздуха {temperature}";
 			}
 			
 			//реализовать остальные температура и др. погодные условия
