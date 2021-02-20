@@ -3,7 +3,7 @@ namespace Bot
 {
 	public static class Config
 	{
-		public static string Token { get; set; } = "сюда надо что-то написать";
+		public static string Token { get; set; } = "";
 
 		public static string get_cs()
 		{

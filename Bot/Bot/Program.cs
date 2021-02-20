@@ -47,7 +47,7 @@ namespace Bot
 					command.Dispose();
 					connection.Close();
 				}
-				await client.SendTextMessageAsync(id, "Я знал что тебе понравится");
+				await client.SendTextMessageAsync(chatId: id, text: "*Я знал что тебе понравится*", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
 			}
 
 			if (messageData == "Не очень)")
@@ -60,7 +60,7 @@ namespace Bot
 					command.Dispose();
 					connection.Close();
 				}
-				await client.SendTextMessageAsync(id, "Спасибо за твое очень важное мнение");
+				await client.SendTextMessageAsync(chatId: id, text:  "*Спасибо за твое очень важное мнение*", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
 			}
 		}
 

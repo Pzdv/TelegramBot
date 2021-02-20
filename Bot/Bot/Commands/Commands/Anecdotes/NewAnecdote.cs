@@ -1,5 +1,4 @@
-﻿using Bot.DataBase;
-using System;
+﻿using System;
 using System.Data.SqlClient;
 
 namespace Bot.Commands.Commands
@@ -13,7 +12,7 @@ namespace Bot.Commands.Commands
 			var anecdote = "";
 			var random = new Random().Next(9, 130277);
 			anecdoteID = random;
-			using (var connection = new SqlConnection(Connection.get_cs()))
+			using (var connection = new SqlConnection(Config.get_cs()))
 			{
 				connection.Open();
 
